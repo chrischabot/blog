@@ -137,18 +137,20 @@ const projects = [
           </h2>
 
           <div class="grid md:grid-cols-2 gap-6">
-            <TerminalCard title="Apache Shindig" command="git log --author='chabot'">
-              <div class="font-mono text-sm space-y-2">
-                <div class="text-terminal-yellow">PHP OpenSocial Reference Implementation</div>
-                <div class="text-muted-foreground text-xs">
-                  Chief author of the PHP implementation of the OpenSocial specification.
-                  PMC member and committer. Led development of versions 0.8, 0.8.1, and 0.9.
+            <a href="https://github.com/chrischabot/shindig-php" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+              <TerminalCard title="Apache Shindig" command="git log --author='chabot'">
+                <div class="font-mono text-sm space-y-2">
+                  <div class="text-terminal-yellow">PHP OpenSocial Reference Implementation</div>
+                  <div class="text-muted-foreground text-xs">
+                    Chief author of the PHP implementation of the OpenSocial specification.
+                    PMC member and committer. Led development of versions 0.8, 0.8.1, and 0.9.
+                  </div>
+                  <div class="text-terminal-cyan text-xs mt-2">
+                    → Used by 14 social networks serving 400M+ users
+                  </div>
                 </div>
-                <div class="text-terminal-cyan text-xs mt-2">
-                  → Used by 14 social networks serving 400M+ users
-                </div>
-              </div>
-            </TerminalCard>
+              </TerminalCard>
+            </a>
 
             <TerminalCard title="OpenSocial Spec" command="git shortlog -sn">
               <div class="font-mono text-sm space-y-2">
@@ -203,6 +205,21 @@ const projects = [
                   </div>
                   <div class="text-terminal-cyan text-xs mt-2">
                     → Powers authentication for the modern web
+                  </div>
+                </div>
+              </TerminalCard>
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/OpenAPI_Specification" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+              <TerminalCard title="OpenAPI (Swagger)" command="cat openapi-spec.yaml">
+                <div class="font-mono text-sm space-y-2">
+                  <div class="text-terminal-yellow">API Description Standard</div>
+                  <div class="text-muted-foreground text-xs">
+                    Contributed to OpenAPI (formerly Swagger), the standard for describing
+                    RESTful APIs enabling automated documentation and code generation.
+                  </div>
+                  <div class="text-terminal-cyan text-xs mt-2">
+                    → Industry standard for API documentation
                   </div>
                 </div>
               </TerminalCard>
