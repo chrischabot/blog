@@ -5,8 +5,6 @@ date: 2024-12-07
 tags: ["devrel", "developer-experience", "strategy", "leadership"]
 ---
 
-# Stop Chasing "Developer Love": Build a Developer Go‑To‑Market CEOs Actually Value
-
 So look, all of us are here because at some point, you know, some executive in your organization, the CEO, the VP of marketing, VP of product, somebody went full Steve Ballmer and decided that like developers were going to be critical to the business strategy, that they were going to make this big investment and out of that big investment, they were going to get this big return on that investment. We want to give back, right? We want to drive community, through the developer audience. We want everybody in open source to love us. We want to drive community. And that's great. But at the end of the day, you need to be sober about the fact that this has to tie back to revenue somehow, because otherwise, it would be very hard for you to argue that you're a good investment for the business.
 
 I found this to be a problem with almost everybody I've spoken to who works in developer relations and developer experience. A lot of people in developer relations and developer experience, they've been tasked with going out and getting developer love, but it was never clearly articulated to them that they're going to be measured on return on investment. Developer relations, that's really fuzzy. It's a dark art. There are no books written on this. And everybody in the organization who is not in developer relations is looking at your organization thinking, that's not a good investment of our resources. So from a CEO's perspective, there is no such thing as developer relations or developer experience. What they have is a developer go-to-market.

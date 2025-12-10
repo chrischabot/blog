@@ -5,8 +5,6 @@ date: 2024-12-10
 tags: ["ai", "swift", "agents", "projects"]
 ---
 
-# You Don't Know What You Know (Until You're Asked)
-
 There is a peculiar tragedy that befalls anyone who has accumulated expertise: they forget what they know. Not in the amnesiac sense, but in a subtler, more insidious way. Knowledge becomes so deeply embedded that it hides in plain sight, like furniture you've stopped seeing because it's always been there.
 
 I've spent years thinking about things—AI, software architecture, the peculiar habits of early-stage startups—and I suspect I know quite a bit about them. But ask me to write it down and I'll stare at a blinking cursor for an embarrassingly long time, eventually producing something that sounds vaguely like every other blog post on the internet.

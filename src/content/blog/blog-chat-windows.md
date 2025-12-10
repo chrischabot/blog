@@ -5,12 +5,6 @@ date: 2024-12-09
 tags: ["swift", "swiftui", "irc", "engineering"]
 ---
 
-# How We Built Chat Windows That Don't Make Users Want to Throw Their Laptops
-
-*A journey through scroll behavior, IRC formatting codes from the 1990s, and the existential dread of LazyVStack*
-
----
-
 Building a chat window seems deceptively simple. It's just a list of messages, right? You scroll down, new messages appear at the bottom, Bob's your uncle. If only software development worked like that.
 
 This is the story of how we built the chat interface for cIRC, our Swift/SwiftUI IRC client. It's a tale of hubris, humility, and learning to respect problems that looked trivial from a distance.

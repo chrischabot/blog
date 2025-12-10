@@ -5,8 +5,6 @@ date: 2024-12-07
 tags: ["ai", "software-design", "ux", "llm"]
 ---
 
-# AI-native Applications: A New Era of Intuitive Software
-
 ## Rethinking What "Software" Even Is
 
 When I talk about *AI-native applications*, I'm not talking about slapping an "AI" label on an old product and calling it a day. To me, AI-native applications are designed from the ground up to harness the power of artificial intelligence. They're not just adding AI as a feature. They're fundamentally rethinking what software can do when it has the ability to learn, adapt, and interact more naturally with humans.
