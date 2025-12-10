@@ -1,7 +1,7 @@
 ---
 title: "Stop Chasing Developer Love: Build a Developer Go-To-Market CEOs Actually Value"
 description: "Developer relations has to tie back to revenue. Here's how to build a DevRel program that CEOs actually understand and value."
-date: 2024-12-07
+date: 2025-12-10
 tags: ["devrel", "developer-experience", "strategy", "leadership"]
 ---
 

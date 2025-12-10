@@ -1,7 +1,7 @@
 ---
 title: "How We Built Chat Windows That Don't Make Users Want to Throw Their Laptops"
 description: "A journey through scroll behavior, IRC formatting codes from the 1990s, and the existential dread of LazyVStack."
-date: 2024-12-09
+date: 2025-12-10
 tags: ["swift", "swiftui", "irc", "engineering"]
 ---
 

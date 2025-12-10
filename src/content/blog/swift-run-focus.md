@@ -1,7 +1,7 @@
 ---
 title: "Why Your SwiftUI App Ignores Your Keyboard (And How to Make It Listen)"
 description: "A tale of terminal launches, activation policies, and the mild existential crisis of a text field that refuses to accept input."
-date: 2024-12-10
+date: 2025-12-10
 tags: ["swift", "swiftui", "macos", "debugging"]
 ---
 
