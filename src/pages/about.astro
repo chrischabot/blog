@@ -1,0 +1,283 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TerminalCard from '../components/TerminalCard.astro';
+
+const experience = [
+  {
+    role: "Head of Developer Relations",
+    company: "Mysten Labs",
+    location: "London",
+    period: "Jun 2025 - Present",
+    description: "Building critical infrastructure for a more decentralized internet",
+    highlights: [
+      "Structured a team of 12 into a cohesive, collaborating success",
+      "Built data gathering pipelines to measure dev program success",
+      "Setup marketing programs with newsletters, social media, and video content",
+      "Created community support structure on Discord, Telegram, GitHub with strict SLA",
+    ]
+  },
+  {
+    role: "VP of Developer Experience",
+    company: "Shardeum",
+    location: "London",
+    period: "Jan 2024 - Jun 2025",
+    description: "L1 blockchain that is auto-scaling, decentralized, and affordable",
+    highlights: [
+      "Grew /shardeum/shardeum GitHub to 32k stars, the 4th most starred blockchain project",
+      "Onboarded, supported & built custom solutions for 12 exchanges and 8 wallet partners",
+      "Managed a team of developer advocates doing worldwide events and content creation",
+      "Built PoCs for Open Telemetry, gRPC and rewritten binary storage format",
+    ]
+  },
+  {
+    role: "Head of Developer Experience",
+    company: "Memgraph",
+    location: "London",
+    period: "Apr 2023 - Jan 2024",
+    description: "Graph database alternative to Neo4j for high-volume enterprise customers",
+    highlights: [
+      "Led team of 7 covering content, documentation, samples, SDKs and support",
+      "Created dog-food project (BlueSky social feed generator) to find critical issues",
+      "Helped go from 7 qualified enterprise leads to 78",
+      "Raised double the intended amount for next funding round",
+    ]
+  },
+  {
+    role: "Head of Developer Advocacy",
+    company: "Sendbird",
+    location: "London",
+    period: "Jan 2021 - Apr 2023",
+    description: "Global conversations platform used by DoorDash, Reddit, Hinge, and PayTM",
+    highlights: [
+      "Led a global team of 6 owning all developer facing activities",
+      "Built and maintained 180+ code samples for iOS, Android and React",
+      "Created prototypes of new product lines including In-App Notifications platform",
+    ]
+  },
+  {
+    role: "Director of Developer Relations",
+    company: "R3 Corda",
+    location: "London",
+    period: "Mar 2019 - Jan 2021",
+    description: "Enterprise blockchain platform",
+    highlights: [
+      "Led globally distributed team of 12 in HK, London, Mumbai, NYC and SF",
+      "Created online developer university and certification program",
+      "Built hosted developer environment using k8s & vscode",
+    ]
+  },
+  {
+    role: "Staff Technical Evangelist",
+    company: "Amazon Alexa",
+    location: "London",
+    period: "Feb 2016 - Feb 2019",
+    description: "Voice-first user experience platform",
+    highlights: [
+      "Gave developers hands-on experience with Alexa",
+      "Worked with Fortune 500 companies on Alexa integrations",
+    ]
+  },
+  {
+    role: "Head of International Developer Relations",
+    company: "Twitter",
+    location: "London",
+    period: "Sep 2013 - Feb 2016",
+    description: "Developer ecosystem for Twitter Fabric, Crashlytics and MoPub",
+    highlights: [
+      "Ran globally distributed Developer Relations team of 12",
+      "Helped drive the M&A of Crashlytics",
+      "Drove 30+ deals with major European VCs and Accelerators",
+      "Delivered keynotes at 18 mobile industry events",
+    ]
+  },
+  {
+    role: "Head of Google+ Developer Relations",
+    company: "Google",
+    location: "Mountain View",
+    period: "Mar 2010 - Sep 2013",
+    description: "Social sharing, +1 button, circles, hangouts, identity services",
+    highlights: [
+      "Founding member of the Google+ Project",
+      "Created and grew Google+ Developer Relations team to 16",
+      "Led initiative for redesigned developer.google.com",
+      "Drove Google API unification used by 50+ products",
+    ]
+  },
+  {
+    role: "Developer Advocate, OpenSocial",
+    company: "Google",
+    location: "Mountain View",
+    period: "Aug 2008 - Mar 2010",
+    description: "Public specification for social network APIs used by 14 networks & 400M users",
+    highlights: [
+      "Authored the PHP OpenSocial reference implementation (Shindig)",
+      "Evangelized OpenSocial, drove adoption with 14 social networks",
+      "Spoke at 60+ conferences on OpenSocial and open web standards",
+      "Led the Open Web standards developer relations team",
+    ]
+  },
+  {
+    role: "PMC Member",
+    company: "Apache Foundation",
+    location: "Mountain View",
+    period: "Feb 2008 - Mar 2010",
+    description: "Apache Shindig - OpenSocial reference implementation",
+    highlights: [
+      "Committer and Project Management Committee member",
+      "Chief author of PHP OpenSocial reference implementation",
+      "Led development of 0.8, 0.8.1 and 0.9 versions of OpenSocial spec",
+      "Drove collaboration with W3C foundation & IBM",
+    ]
+  }
+];
+---
+
+<BaseLayout title="About | Chris Chabot">
+  <div class="min-h-screen flex flex-col">
+    <Header />
+
+    <main class="flex-1">
+      <!-- Hero -->
+      <section class="border-b border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <div class="flex items-center gap-2 text-sm text-muted-foreground mb-4 font-mono">
+            <span class="text-terminal-green">$</span>
+            <span>cat about.md</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            Chris Chabot
+          </h1>
+          <p class="text-lg text-muted-foreground max-w-3xl">
+            I'm passionate about driving societal change through technological innovation.
+            With experience leading developer teams at Google, Twitter, Amazon, and early stage startups.
+            Frequent keynote speaker and startup advisor.
+          </p>
+        </div>
+      </section>
+
+      <!-- Quick Info Terminal -->
+      <section class="border-b border-border bg-card/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <div class="grid md:grid-cols-2 gap-6">
+            <TerminalCard title="bash" command="whoami --verbose">
+              <div class="font-mono text-sm space-y-2">
+                <div><span class="text-terminal-cyan">name:</span> Chris Chabot</div>
+                <div><span class="text-terminal-cyan">location:</span> London, UK</div>
+                <div><span class="text-terminal-cyan">email:</span> chabotc@gmail.com</div>
+                <div><span class="text-terminal-cyan">linkedin:</span> linkedin.com/in/chabotc</div>
+                <div><span class="text-terminal-cyan">github:</span> github.com/chrischabot</div>
+              </div>
+            </TerminalCard>
+
+            <TerminalCard title="bash" command="cat skills.json | jq '.focus'">
+              <div class="font-mono text-sm space-y-1">
+                <div class="text-muted-foreground">[</div>
+                <div class="pl-4 text-terminal-yellow">"Developer Relations Leadership"</div>
+                <div class="pl-4 text-terminal-yellow">"Developer Experience"</div>
+                <div class="pl-4 text-terminal-yellow">"Open Source Strategy"</div>
+                <div class="pl-4 text-terminal-yellow">"API Design & Documentation"</div>
+                <div class="pl-4 text-terminal-yellow">"Community Building"</div>
+                <div class="pl-4 text-terminal-yellow">"Technical Evangelism"</div>
+                <div class="text-muted-foreground">]</div>
+              </div>
+            </TerminalCard>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Timeline -->
+      <section class="border-b border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <h2 class="text-xl font-semibold text-foreground mb-8 flex items-center gap-2">
+            <span class="text-terminal-green">$</span>
+            <span>history | grep "career"</span>
+          </h2>
+
+          <div class="space-y-6">
+            {experience.map((job, index) => (
+              <div class="relative pl-6 border-l-2 border-border hover:border-terminal-green/50 transition-colors group">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-background border-2 border-terminal-green group-hover:bg-terminal-green/20 transition-colors"></div>
+
+                <div class="pb-6">
+                  <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                    <h3 class="text-lg font-semibold text-foreground">{job.role}</h3>
+                    <span class="text-terminal-blue">@ {job.company}</span>
+                  </div>
+
+                  <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground mb-3 font-mono">
+                    <span>{job.period}</span>
+                    <span>•</span>
+                    <span>{job.location}</span>
+                  </div>
+
+                  <p class="text-sm text-muted-foreground mb-3">{job.description}</p>
+
+                  <ul class="space-y-1">
+                    {job.highlights.map((highlight) => (
+                      <li class="text-sm text-foreground/80 flex items-start gap-2">
+                        <span class="text-terminal-green mt-1">→</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Hobbies -->
+      <section class="border-b border-border bg-card/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <div class="grid md:grid-cols-2 gap-6">
+            <TerminalCard title="bash" command="cat education.txt">
+              <div class="font-mono text-sm">
+                <div class="text-terminal-yellow">Bachelor of Computer Science</div>
+                <div class="text-muted-foreground">Technical University, Delft, Netherlands</div>
+              </div>
+            </TerminalCard>
+
+            <TerminalCard title="bash" command="ls ~/hobbies/">
+              <div class="font-mono text-sm space-y-1">
+                <div><span class="text-terminal-blue">photography/</span> <span class="text-muted-foreground"># 500px.com/chabotc</span></div>
+                <div><span class="text-terminal-blue">writing/</span></div>
+                <div><span class="text-terminal-blue">cycling/</span></div>
+                <div><span class="text-terminal-blue">hiking/</span></div>
+                <div><span class="text-terminal-blue">sailing/</span></div>
+                <div><span class="text-terminal-blue">communities/</span></div>
+              </div>
+            </TerminalCard>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <div class="text-center">
+            <h2 class="text-xl font-semibold text-foreground mb-4">
+              <span class="text-terminal-green">$</span> ./contact.sh
+            </h2>
+            <p class="text-muted-foreground mb-6 max-w-lg mx-auto">
+              Interested in working together or just want to chat about developer relations,
+              open source, or technology? Let's connect.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="mailto:chabotc@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 bg-terminal-green text-background rounded font-medium text-sm hover:bg-terminal-green/90 transition-colors">
+                Send Email
+              </a>
+              <a href="https://linkedin.com/in/chabotc" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 border border-border bg-card text-foreground rounded font-medium text-sm hover:border-terminal-blue hover:text-terminal-blue transition-colors">
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

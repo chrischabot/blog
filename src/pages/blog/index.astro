@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import TerminalCard from '../../components/TerminalCard.astro';
+import { getCollection } from 'astro:content';
+
+let posts: any[] = [];
+try {
+  posts = await getCollection('blog');
+} catch (e) {
+  // Collection doesn't exist yet
+}
+
+const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Group posts by year
+const postsByYear = sortedPosts.reduce((acc, post) => {
+  const year = post.data.date.getFullYear();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(post);
+  return acc;
+}, {} as Record<number, typeof posts>);
+
+const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout title="Blog | Chris Chabot">
+  <div class="min-h-screen flex flex-col">
+    <Header />
+
+    <main class="flex-1">
+      <!-- Hero -->
+      <section class="border-b border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <div class="flex items-center gap-2 text-sm text-muted-foreground mb-4 font-mono">
+            <span class="text-terminal-green">$</span>
+            <span>ls -la ./blog/</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            Blog
+          </h1>
+          <p class="text-lg text-muted-foreground max-w-3xl">
+            Thoughts on developer relations, open source, building developer communities,
+            and the occasional technical deep-dive.
+          </p>
+        </div>
+      </section>
+
+      <!-- Posts -->
+      <section>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          {sortedPosts.length > 0 ? (
+            <div class="space-y-12">
+              {years.map((year) => (
+                <div>
+                  <h2 class="text-lg font-semibold text-foreground mb-6 flex items-center gap-2 sticky top-14 bg-background py-2 z-10">
+                    <span class="text-terminal-green">$</span>
+                    <span>grep -r "{year}" ./posts/</span>
+                    <span class="text-muted-foreground text-sm font-normal ml-2">
+                      ({postsByYear[Number(year)].length} {postsByYear[Number(year)].length === 1 ? 'post' : 'posts'})
+                    </span>
+                  </h2>
+                  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {postsByYear[Number(year)].map((post: any) => (
+                      <BlogPostCard
+                        title={post.data.title}
+                        description={post.data.description}
+                        date={post.data.date}
+                        slug={post.slug}
+                        tags={post.data.tags}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <TerminalCard title="bash" command="ls -la ./blog/">
+              <div class="font-mono text-sm space-y-2">
+                <div class="text-terminal-yellow">total 0</div>
+                <div class="text-muted-foreground">
+                  <span class="text-terminal-green">#</span> No posts yet.
+                </div>
+                <div class="text-muted-foreground mt-4">
+                  <span class="text-terminal-green">$</span> echo "Check back soon for new content!"
+                </div>
+                <div class="text-foreground">Check back soon for new content!</div>
+              </div>
+            </TerminalCard>
+          )}
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

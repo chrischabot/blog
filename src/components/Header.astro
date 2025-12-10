@@ -1,0 +1,84 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'home', shortcut: '~' },
+  { href: '/blog', label: 'blog', shortcut: 'b' },
+  { href: '/projects', label: 'projects', shortcut: 'p' },
+  { href: '/about', label: 'about', shortcut: 'a' },
+];
+---
+
+<header class="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-14">
+      <!-- Logo / Name as terminal prompt -->
+      <a href="/" class="group flex items-center gap-2 text-foreground hover:text-terminal-green transition-colors">
+        <span class="text-terminal-green">chris@chabot</span>
+        <span class="text-muted-foreground">:</span>
+        <span class="text-terminal-blue">~</span>
+        <span class="text-foreground">$</span>
+        <span class="w-2 h-4 bg-terminal-green opacity-0 group-hover:opacity-100 animate-pulse transition-opacity"></span>
+      </a>
+
+      <!-- Navigation as command options -->
+      <nav class="hidden sm:flex items-center gap-1">
+        <span class="text-muted-foreground mr-2">--</span>
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "px-3 py-1.5 text-sm rounded transition-all duration-200",
+              currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+                ? "bg-terminal-green/20 text-terminal-green border border-terminal-green/30"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+            ]}
+          >
+            <span class="text-terminal-yellow/70 mr-1">[{item.shortcut}]</span>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="sm:hidden p-2 text-muted-foreground hover:text-terminal-green transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile navigation -->
+    <nav id="mobile-menu" class="sm:hidden hidden pb-4 border-t border-border mt-2 pt-4">
+      <div class="flex flex-col gap-2">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "px-3 py-2 text-sm rounded transition-all duration-200",
+              currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+                ? "bg-terminal-green/20 text-terminal-green"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+            ]}
+          >
+            <span class="text-terminal-green mr-2">$</span>
+            cd {item.label}
+          </a>
+        ))}
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

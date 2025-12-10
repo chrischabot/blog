@@ -1,16 +1,204 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TerminalCard from '../components/TerminalCard.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
 
+let posts: any[] = [];
+try {
+  posts = await getCollection('blog');
+} catch (e) {
+  // Collection doesn't exist yet
+}
+
+const recentPosts = posts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 6);
+
+const asciiArt = `
+ ██████╗██╗  ██╗ █████╗ ██████╗  ██████╗ ████████╗
+██╔════╝██║  ██║██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝
+██║     ███████║███████║██████╔╝██║   ██║   ██║
+██║     ██╔══██║██╔══██║██╔══██╗██║   ██║   ██║
+╚██████╗██║  ██║██║  ██║██████╔╝╚██████╔╝   ██║
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝    ╚═╝
+`.trim();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Chris Chabot | Developer, Builder, Open Source Advocate">
+  <div class="min-h-screen flex flex-col">
+    <Header />
+
+    <main class="flex-1">
+      <!-- Hero Section -->
+      <section class="relative overflow-hidden">
+        <!-- Grid background pattern -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(88,166,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(88,166,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: ASCII art and intro -->
+            <div class="space-y-6">
+              <!-- ASCII Name - hidden on mobile -->
+              <pre class="ascii-art text-terminal-green hidden sm:block text-[0.5rem] sm:text-xs leading-tight opacity-80 select-none">{asciiArt}</pre>
+
+              <!-- Mobile name -->
+              <h1 class="sm:hidden text-3xl font-bold text-terminal-green">Chris Chabot</h1>
+
+              <!-- Tagline -->
+              <div class="space-y-2">
+                <p class="text-xl sm:text-2xl text-foreground">
+                  Building developer ecosystems.<br />
+                  <span class="text-muted-foreground">One API at a time.</span>
+                </p>
+              </div>
+
+              <!-- Quick stats as terminal output -->
+              <div class="font-mono text-sm space-y-1">
+                <div>
+                  <span class="text-terminal-green">$</span>
+                  <span class="text-muted-foreground"> experience --years</span>
+                </div>
+                <div class="pl-4 text-terminal-yellow">20+ years in tech • Google • Twitter • Amazon • Apache</div>
+
+                <div class="pt-2">
+                  <span class="text-terminal-green">$</span>
+                  <span class="text-muted-foreground"> focus --current</span>
+                </div>
+                <div class="pl-4 text-terminal-cyan">Developer Relations • Web3 • Open Source • AI</div>
+              </div>
+
+              <!-- CTA buttons -->
+              <div class="flex flex-wrap gap-3 pt-4">
+                <a href="/about" class="inline-flex items-center gap-2 px-4 py-2 bg-terminal-green text-background rounded font-medium text-sm hover:bg-terminal-green/90 transition-colors">
+                  <span>$ cat about.md</span>
+                </a>
+                <a href="/projects" class="inline-flex items-center gap-2 px-4 py-2 border border-border bg-card text-foreground rounded font-medium text-sm hover:border-terminal-green/50 hover:text-terminal-green transition-colors">
+                  <span>$ ls projects/</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Terminal card with highlights -->
+            <div class="lg:justify-self-end w-full max-w-md">
+              <TerminalCard title="bash" command="~/highlights.sh">
+                <div class="font-mono text-sm space-y-3">
+                  <div>
+                    <span class="text-terminal-green">#!/bin/bash</span>
+                  </div>
+                  <div class="text-muted-foreground"># Career highlights</div>
+                  <div class="space-y-2">
+                    <div>
+                      <span class="text-terminal-purple">echo</span>
+                      <span class="text-terminal-yellow"> "Founding member of Google+"</span>
+                    </div>
+                    <div>
+                      <span class="text-terminal-purple">echo</span>
+                      <span class="text-terminal-yellow"> "Head of DevRel @ Twitter"</span>
+                    </div>
+                    <div>
+                      <span class="text-terminal-purple">echo</span>
+                      <span class="text-terminal-yellow"> "Apache Shindig PMC"</span>
+                    </div>
+                    <div>
+                      <span class="text-terminal-purple">echo</span>
+                      <span class="text-terminal-yellow"> "OpenSocial spec author"</span>
+                    </div>
+                    <div>
+                      <span class="text-terminal-purple">echo</span>
+                      <span class="text-terminal-yellow"> "60+ conference talks"</span>
+                    </div>
+                  </div>
+                  <div class="pt-2 text-muted-foreground">
+                    <span class="text-terminal-green">$</span> <span class="cursor-blink"></span>
+                  </div>
+                </div>
+              </TerminalCard>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Posts -->
+      <section class="border-t border-border bg-card/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h2 class="text-xl font-semibold text-foreground flex items-center gap-2">
+                <span class="text-terminal-green">$</span>
+                <span>ls -la ./blog --recent</span>
+              </h2>
+              <p class="text-sm text-muted-foreground mt-1">Latest thoughts and writings</p>
+            </div>
+            <a href="/blog" class="text-sm text-terminal-blue hover:text-terminal-cyan transition-colors">
+              View all →
+            </a>
+          </div>
+
+          {recentPosts.length > 0 ? (
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recentPosts.map((post) => (
+                <BlogPostCard
+                  title={post.data.title}
+                  description={post.data.description}
+                  date={post.data.date}
+                  slug={post.slug}
+                  tags={post.data.tags}
+                />
+              ))}
+            </div>
+          ) : (
+            <TerminalCard title="bash" command="ls -la ./blog">
+              <div class="font-mono text-sm">
+                <div class="text-terminal-yellow">total 0</div>
+                <div class="text-muted-foreground mt-2">
+                  <span class="text-terminal-green">#</span> No posts yet. Check back soon!
+                </div>
+              </div>
+            </TerminalCard>
+          )}
+        </div>
+      </section>
+
+      <!-- Connect section -->
+      <section class="border-t border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+          <div class="max-w-2xl">
+            <h2 class="text-xl font-semibold text-foreground mb-4">
+              <span class="text-terminal-green">$</span> ./connect.sh
+            </h2>
+            <p class="text-muted-foreground mb-6">
+              I'm always interested in connecting with fellow developers, discussing new opportunities,
+              or collaborating on interesting projects. Feel free to reach out.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://github.com/chrischabot" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-terminal-green transition-colors">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+              <a href="https://linkedin.com/in/chabotc" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-terminal-blue transition-colors">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="mailto:chabotc@gmail.com" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-terminal-yellow transition-colors">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

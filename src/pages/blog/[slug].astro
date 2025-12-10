@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formattedDate = post.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${post.data.title} | Chris Chabot`} description={post.data.description}>
+  <div class="min-h-screen flex flex-col">
+    <Header />
+
+    <main class="flex-1">
+      <article class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+        <!-- Header -->
+        <header class="mb-12">
+          <div class="flex items-center gap-2 text-sm text-muted-foreground mb-4 font-mono">
+            <span class="text-terminal-green">$</span>
+            <span>cat ./blog/{post.slug}.md</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl font-bold text-foreground mb-4 leading-tight">
+            {post.data.title}
+          </h1>
+
+          <div class="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
+            <time datetime={post.data.date.toISOString()} class="font-mono">
+              <span class="text-terminal-green">#</span> {formattedDate}
+            </time>
+
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="flex flex-wrap gap-2">
+                {post.data.tags.map((tag: string) => (
+                  <span class="text-xs px-2 py-0.5 bg-secondary text-terminal-cyan rounded font-mono">
+                    --{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {post.data.description && (
+            <p class="text-lg text-muted-foreground border-l-2 border-terminal-green pl-4">
+              {post.data.description}
+            </p>
+          )}
+        </header>
+
+        <!-- Content -->
+        <div class="prose prose-invert prose-terminal max-w-none">
+          <Content />
+        </div>
+
+        <!-- Footer navigation -->
+        <footer class="mt-16 pt-8 border-t border-border">
+          <a
+            href="/blog"
+            class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-terminal-green transition-colors font-mono"
+          >
+            <span>←</span>
+            <span>$ cd ../blog/</span>
+          </a>
+        </footer>
+      </article>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .prose-terminal {
+    --tw-prose-body: #c9d1d9;
+    --tw-prose-headings: #c9d1d9;
+    --tw-prose-lead: #8b949e;
+    --tw-prose-links: #58a6ff;
+    --tw-prose-bold: #c9d1d9;
+    --tw-prose-counters: #8b949e;
+    --tw-prose-bullets: #30363d;
+    --tw-prose-hr: #30363d;
+    --tw-prose-quotes: #8b949e;
+    --tw-prose-quote-borders: #3fb950;
+    --tw-prose-captions: #8b949e;
+    --tw-prose-code: #3fb950;
+    --tw-prose-pre-code: #c9d1d9;
+    --tw-prose-pre-bg: #161b22;
+    --tw-prose-th-borders: #30363d;
+    --tw-prose-td-borders: #21262d;
+  }
+
+  .prose-terminal h1,
+  .prose-terminal h2,
+  .prose-terminal h3,
+  .prose-terminal h4 {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .prose-terminal h2::before {
+    content: "## ";
+    color: #3fb950;
+  }
+
+  .prose-terminal h3::before {
+    content: "### ";
+    color: #58a6ff;
+  }
+
+  .prose-terminal a {
+    text-decoration: none;
+    border-bottom: 1px dashed #58a6ff;
+  }
+
+  .prose-terminal a:hover {
+    border-bottom-style: solid;
+  }
+
+  .prose-terminal blockquote {
+    font-style: normal;
+    border-left-color: #3fb950;
+  }
+
+  .prose-terminal code:not(pre code) {
+    background: #21262d;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+
+  .prose-terminal pre {
+    border: 1px solid #30363d;
+    border-radius: 0.5rem;
+  }
+
+  .prose-terminal img {
+    border-radius: 0.5rem;
+    border: 1px solid #30363d;
+  }
+</style>

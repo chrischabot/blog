@@ -1,0 +1,54 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border bg-card/50 mt-auto">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Terminal output style info -->
+      <div class="space-y-2">
+        <div class="text-terminal-green text-sm">$ whoami</div>
+        <div class="text-muted-foreground text-sm pl-4">
+          Chris Chabot<br />
+          Developer Relations Leader<br />
+          Open Source Advocate
+        </div>
+      </div>
+
+      <!-- Links as command output -->
+      <div class="space-y-2">
+        <div class="text-terminal-green text-sm">$ cat links.txt</div>
+        <div class="pl-4 space-y-1">
+          <a href="https://github.com/chrischabot" class="block text-sm text-muted-foreground hover:text-terminal-blue transition-colors">
+            → github.com/chrischabot
+          </a>
+          <a href="https://linkedin.com/in/chabotc" class="block text-sm text-muted-foreground hover:text-terminal-blue transition-colors">
+            → linkedin.com/in/chabotc
+          </a>
+          <a href="mailto:chabotc@gmail.com" class="block text-sm text-muted-foreground hover:text-terminal-blue transition-colors">
+            → chabotc@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="space-y-2">
+        <div class="text-terminal-green text-sm">$ uptime</div>
+        <div class="text-muted-foreground text-sm pl-4">
+          <span class="text-terminal-yellow">{year - 2008}+ years</span> building developer ecosystems<br />
+          <span class="text-terminal-cyan">London, UK</span> • UTC+0
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="text-xs text-muted-foreground">
+        <span class="text-terminal-green">$</span> echo "© {year} Chris Chabot. Built with Astro."
+      </div>
+      <div class="flex items-center gap-2 text-xs text-muted-foreground">
+        <span class="inline-block w-2 h-2 rounded-full bg-terminal-green animate-pulse"></span>
+        <span>All systems operational</span>
+      </div>
+    </div>
+  </div>
+</footer>

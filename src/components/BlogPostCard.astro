@@ -1,0 +1,69 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  slug: string;
+  tags?: string[];
+  readingTime?: string;
+}
+
+const { title, description, date, slug, tags = [], readingTime = "5 min" } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+
+const isoDate = date.toISOString().split('T')[0];
+---
+
+<article class="group relative h-full">
+  <a href={`/blog/${slug}`} class="block h-full">
+    <div class="h-full flex flex-col rounded-lg border border-border bg-card hover:border-terminal-green/50 transition-all duration-300 overflow-hidden">
+      <!-- File header -->
+      <div class="flex items-center gap-2 px-4 py-2 bg-secondary/30 border-b border-border">
+        <span class="text-terminal-blue text-sm">📄</span>
+        <span class="text-xs text-muted-foreground font-mono truncate">{slug}.md</span>
+        <span class="ml-auto text-xs text-muted-foreground">{readingTime} read</span>
+      </div>
+
+      <div class="p-5 flex-1 flex flex-col">
+        <!-- Date as comment -->
+        <div class="text-xs text-muted-foreground mb-2 font-mono">
+          <span class="text-terminal-green">#</span> {formattedDate}
+          <time datetime={isoDate} class="sr-only">{isoDate}</time>
+        </div>
+
+        <!-- Title -->
+        <h3 class="text-lg font-semibold text-foreground group-hover:text-terminal-green transition-colors mb-2 leading-tight">
+          {title}
+        </h3>
+
+        <!-- Description -->
+        <p class="text-sm text-muted-foreground line-clamp-2 mb-4 flex-1">
+          {description}
+        </p>
+
+        <!-- Tags as flags -->
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span class="text-xs px-2 py-0.5 bg-secondary text-terminal-cyan rounded font-mono">
+                --{tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- Read indicator -->
+      <div class="px-5 pb-4 pt-0 mt-auto">
+        <span class="text-xs text-terminal-green group-hover:translate-x-1 transition-transform inline-block">
+          $ cat {slug}.md →
+        </span>
+      </div>
+    </div>
+  </a>
+</article>
