@@ -1,0 +1,5 @@
+{
+  "name": "chris-chabot-blog",
+  "compatibility_date": "2025-12-10", 
+  "pages_build_output_dir": "./dist"
+}
