@@ -1,4 +1,4 @@
-# chrischabot.com
+# chabotc.co.uk chabot.dev
 
 A personal blog masquerading as a terminal emulator, built by someone who has spent far too many hours staring at monospace fonts and has the opinions to prove it.
 
