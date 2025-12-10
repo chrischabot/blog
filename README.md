@@ -7,7 +7,7 @@ A personal blog masquerading as a terminal emulator, built by someone who has sp
 This is my blog. It pretends to be a bash shell because apparently two decades of software engineering leaves you with an aesthetic sensibility best described as "what if everything looked like `htop`?"
 
 The site features:
-- **Blog posts** rendered from Markdown, because I refuse to learn a CMS
+- **Blog posts** rendered from Markdown, because I refuse to use a CMS when static will do
 - **An About page** that chronicles my wandering path through the tech industry
 - **A Projects page** showcasing open source work of varying degrees of completion and ambition
 
