@@ -79,7 +79,7 @@ The result is a permissive license like the MIT and BSD licenses are — with ha
 
 This makes it the most popular license for any project that aims to be used by other companies and maximize adoption.
 
-## BSL and other business-focused licenses
+## BSL and business licenses
 
 In recent years a new phenomenon has happened, where AWS offered hosting services of open-source products from commercial companies. AWS being as popular as it is, this had a significant negative revenue impact for those companies and was detrimental to not only their success but also the success of the products themselves.
 
@@ -87,7 +87,7 @@ In response to this, companies that create products that a cloud provider could 
 
 Usually, these licenses include terms that automatically change the license to one without this restriction after four or so years, so that anyone using it doesn't have to worry about what would happen if the original company doesn't exist anymore.
 
-## What license to choose?
+## Choosing a license
 
 With so many options available, what is the right license to choose for your project? A rough guideline is:
 
@@ -99,7 +99,7 @@ With so many options available, what is the right license to choose for your pro
 
 **BSL:** If your product is something that could be offered as a cloud service, and you want to prevent other cloud providers from competing with you with your own product, this is the license for you.
 
-## Concluding thoughts
+## Conclusion
 
 Choosing the appropriate license for your project is an important decision that depends on your goals and priorities. The GPL license ensures the strongest protection for open-source projects, while MIT and BSD licenses offer more flexibility in usage. The Apache License 2.0 is ideal for projects that aim to maximize adoption and usage, particularly by corporations. Lastly, the BSL license is suitable for projects that could be offered as cloud services and require protection from competition.
 

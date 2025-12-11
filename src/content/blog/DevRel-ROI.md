@@ -9,7 +9,7 @@ So look, all of us are here because at some point, some executive in your organi
 
 I found this to be a problem with almost everybody I've spoken to who works in developer relations and developer experience. A lot of people in developer relations and developer experience, they've been tasked with going out and getting developer love, but it was never clearly articulated to them that they're going to be measured on return on investment. Developer relations, that's really fuzzy. It's a dark art. There are no books written on this. And everybody in the organization who is not in developer relations is looking at your organization thinking, that's not a good investment of our resources. So from a CEO's perspective, there is no such thing as developer relations or developer experience. What they have is a developer go-to-market.
 
-## How CEOs Actually Think About Your Program
+## The CEO's perspective
 
 A CEO's perspective is actually really simple, and now it's not just CEOs who think this way, but they're really the one person in the organization who has probably the most holistic view of the business. Everything that they're doing, everything that they're pushing, everything that they, you know, evaluate or prioritize is measured along three axes. The first one is driving revenue growth. The second is cost reduction. And the third one is, is what we're doing enabling us to be more predictable or help us reduce risk? Everything a CEO does falls along these three axes, and a good CEO's job is to look at everything that's happening and say, where am I getting the most ROI, and where can I keep putting more money into to get more scale?
 
@@ -17,7 +17,7 @@ So as a CEO is doing his job, he's going to take everything that's happening in 
 
 So from a metrics perspective, please track your metrics. If you're doing developer relations, somebody has probably said this is really critical for the business. And so at the end of the day, the CEO's job is not to play favorites. He has scarce resources. He's got really challenging metrics that his board is pushing on him. And developer relations and developer experience also need to fall along these axes. Understanding what those are and how your developer go-to-market ties into them is critical, because if you don't have a good answer to that, then it's going to be very hard for you to continue getting resources to continue making the investments you need to make to be successful.
 
-## DevRel Is Just Marketing, DevEx Is Just Product
+## DevRel as marketing, DevEx as product
 
 So at the end of the day, developer relations is a go-to-market strategy. Developer relations and developer experience are simply components of an overall go-to-market strategy. From a developer's perspective, developer relations is just marketing. It's just really highly specialized field marketing for a really hard-to-market audience who hates to be marketed to. Developer experience is a product function, and it should be measured as a business unit. At the end of the day, it doesn't matter how fast your API is or all the amazing features that your product has, if the developer can't use it, if he can't easily figure out how to do what he needs to do in your API, that feature set doesn't exist.
 
@@ -25,7 +25,7 @@ So from a CEO's perspective, what they have is a developer go-to-market. For man
 
 Developer relations and developer experience cannot be this dark art that only those chosen few know about. Everybody has to understand where it fits and how they fit into it as well. DevRel is owned by DevRel. DevX is owned by DevX. There's no Chinese firewall. You're one organization trying to work in a coordinated dance. Making sure that you're not just simply two different parts of the organization that don't talk to each other, but that you're working together, is really powerful if you want your program to be successful. You have to advocate internally. You have to make sure that people know what your ROI story is.
 
-## You Can’t Just Copy Twilio, Stripe, or Apple
+## Three models that work
 
 Everybody looks at the next Twilio or Stripe or Heroku and says, oh my God, they're growing so fast. Their stock is trading at such a high multiple. Let's go do that. They're going to copy what they're doing and they're going to be successful. If you're Apple doing what Twilio does, it won't work. If you're Twilio doing what Apple does, it's a really bad idea. The reason is they're a different company than you. They have a different product than you. They have different competitors than you. They have a different budget than you. Everything about their business is likely very different from every part of your business.
 
@@ -35,7 +35,7 @@ Or the third one, which is not as common, but is starting to appear more lately,
 
 You have to pick which one you are, because which one you are is going to drive every other part of your program. If you're Twilio doing what Apple does, it's a really bad idea. If you're Apple doing what Twilio does, it won't work. So let's actually think about what is your strategy? What are you really trying to do with your developer go-to-market? Are you trying to sell your product through the developer? Are you trying to build an ecosystem? Are you trying to deepen the engagement for a product that's already being sold successfully? If you copy what they're doing, you will fail.
 
-## There’s No Such Thing as “Developers”
+## Know your developer personas
 
 There's no such thing as a developer, right? There are millions of different kinds of developers. There are front-end developers, back-end developers. There are mobile developers. There are people working in Java, .NET, Node, Python, Ruby. There are data scientists. There are architects. There are senior developers, junior developers. A Node.js developer who is working on Heroku has a very different set of concerns than an enterprise .NET developer working in a purely Microsoft stack in the data centre. Depending how you look at your market, depending what matters to you, you need to slice them differently.
 
@@ -43,7 +43,7 @@ Once you have a really good sense of who your personas are, which developers are
 
 You might not find them at the events that you're going to find a mobile developer at. They may not read Hacker News, or maybe they do, but understanding who they are is going to help you figure that out. You need to know these things to figure out where to invest your time and money, because these programs are really hard to build. They're really expensive, and chances are you're really busy. You can't deliver your program developer experience and developer relations if you don't understand who you're really going after, well, what do they care about? What they care about is going to drive what you build, what content you write, what events you attend, and how you show up.
 
-## What Metrics Actually Matter for ROI
+## Metrics that matter
 
 So from a metrics perspective, please track your metrics. Otherwise, you don't know if what you're doing works. The next step, and I see this a lot, especially from people who are new to developer relations, is not that people aren't tracking metrics, it's that people are tracking all the wrong metrics. So common mistakes I see often are measuring developer relations by Facebook likes, Twitter retweets, GitHub stars, pull requests. That's all great. That shows the health of a community, that doesn't show return on investment on your developer relations program. NPS or referral is really important because the reason developer relations even exists is that the only tried and true way people have figured out to market to developers is through word of mouth.
 
@@ -53,7 +53,7 @@ And then once they put that effort in, are they engaging? Are they using the fea
 
 So with that perspective, how do we build a successful developer experience and developer relations so that you can build a successful DevRel and DevEx program in your organization and be confident that you're doing the best thing for the business? You should be tracking this. Is what you're doing working? Which programs are working? When you're flying all over the country, all over the world to give talks, which are the ones that are actually driving impact? And if something's not working, stop doing it immediately. And if something's working, do more of it. And if you don't have a good answer to that, then it's going to be very hard for you to be making major investments.
 
-## “You Can’t Measure DevRel ROI” Is Just Laziness
+## Yes, you can measure ROI
 
 Everybody says, oh, you can't do it. It's really hard to measure it. These programs are really hard to build. It requires a lot of systems integrations. It requires a lot of labor. Extraordinarily hard to build, but worth every single penny. But you have to find ways of tracking it. If there's a way to tie back to revenue, you should find a way to tie back to revenue. At the end of the day, you need to be sober about the fact that this has to tie back to revenue somehow. If you can put a public dashboard on something like Periscope or Grow.com or something like that, do it and let everybody have access to it.
 
@@ -61,7 +61,7 @@ I've invested heavily in this at companies to have dashboards that show everythi
 
 It's really easy in developer relations to see a blog post and say, oh, my God, Goldman Sachs saw this post on Docker, and they came in through that post, and six months later, they bought our product. Well, was it a fluke? Did it just happen to come in through Docker? Or should you write more about Docker? Do you expect JP Morgan and Bank of America and all the other banks to come in through that same post or similar content? You should be tracking this. So getting ROI is a big piece of it, but it's not enough. You have to make sure that people know what your ROI story is.
 
-## Integrating with Sales and the Rest of the Business
+## Working with sales
 
 For many companies, the developer go-to-market is not the only go-to-market they have, and this is really important because a lot of people in developer relations and developer experience, they've been tasked with going out and getting developer love, but it was never clearly articulated to them that they're going to be measured on return on investment. 
 
@@ -71,7 +71,7 @@ DevRel resources, one, are really hard to find. These programs are really hard t
 
 You can't just copy Twilio. You can't just copy what Apple does. You have this interesting opportunity where you have to go rebuild developer relations and developer experience at a brand new organization from scratch. 
 
-## Make ROI Everyone’s Problem, Not a Dark Art
+## Share your metrics
 
 Educate the people on your team about your focus on ROI. Make it clear to them that they're not there just to get developers to like them on Twitter or Facebook. They're there to drive business. Educate your peers, the people on other teams, the sales organization, the marketing organization, the finance department. Developer relations cannot be this dark art that only those chosen few know about. Everybody has to understand where it fits and how they fit into it as well. That way everybody knows what you're doing. So everybody knows that you are working on it and not hiding the ball.
 

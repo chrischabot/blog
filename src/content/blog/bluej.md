@@ -11,7 +11,7 @@ Not a trickle. Not a curated stream. A *firehose*—500 events per second of raw
 
 Reader, I drank deeply.
 
-## The Siren Song of the AT Protocol
+## Understanding the AT Protocol
 
 For the uninitiated, Bluesky isn't just another social network with a nice logo and dreams of not becoming a cesspool. It's built on the AT Protocol (Authenticated Transfer Protocol), a genuinely fascinating piece of engineering that separates the *what* from the *where*. Your identity isn't tied to a server—it's cryptographically yours through Decentralized Identifiers (DIDs). Your data lives in a Personal Data Server (PDS) that you could, theoretically, host yourself. And everything flows through relays that aggregate the entire network's activity into that glorious firehose.
 
@@ -21,7 +21,7 @@ And I happened to work for a company that made a rather good graph database.
 
 The project that emerged from this collision of circumstances was called **BlueJ** (originally "Home+"), and it became both my obsession and my education in the fine art of algorithmic feed generation.
 
-## The Problem With Chronological Feeds (And Why Everyone's Algorithm Is Terrible)
+## The problem with feeds
 
 Here's the thing about chronological feeds: they're democratic to a fault. Every post from everyone you follow, in the order they posted it. Simple. Pure. And absolutely overwhelming once you follow more than fifty people.
 
@@ -31,7 +31,7 @@ I wanted something in between. A feed that was *interesting* without being *mani
 
 So I did what any reasonable person would do: I wrote a bunch of Cypher queries and hoped for the best.
 
-## The Algorithm: Three Streams, One River
+## The three-stream approach
 
 The core insight of BlueJ's feed algorithm is embarrassingly simple: don't rely on a single signal. Instead, blend multiple sources of content using a weighted distribution.
 
@@ -51,7 +51,7 @@ let queryResults = await parallelQueries(requesterDid, maxNodeId, {
 
 **Stream 3: Community Posts** — For users who've been assigned to community clusters (through graph analysis), posts from others in the same community. A way to discover people you *might* want to follow, based on the structure of the social graph rather than explicit choices.
 
-## The Scoring Function (Or: How I Learned to Stop Worrying and Love Exponential Decay)
+## Scoring with time decay
 
 Now here's where I'll confess to stealing shamelessly from the giants. The scoring function for ranking posts within each stream uses a decay formula that should look familiar to anyone who's studied Hacker News:
 
@@ -65,7 +65,7 @@ The fourth power on the age denominator is *aggressive*. A post that's 4 hours o
 
 This prevents the "greatest hits" problem where the same viral posts linger at the top of your feed forever. New posts get their moment in the sun; if they don't earn engagement quickly, they gracefully fade away. It's Darwinian, but fair.
 
-## The Weighted Round-Robin: Blending Without Bias
+## Blending the streams
 
 Here's a subtle problem: you've got three arrays of posts, each ranked by their own criteria. How do you merge them into a single feed without one source dominating?
 
@@ -92,7 +92,7 @@ The elegance (if I may be permitted a moment of immodesty) is in the interleavin
 
 It's like shuffling a deck of cards where some suits have more cards than others, but every hand still feels balanced.
 
-## The Freshness Trick: Detecting the Pull-to-Refresh
+## Detecting refresh requests
 
 One of my favorite pieces of cleverness in the codebase (and I say this knowing full well that "favorite pieces of cleverness" is exactly what developers say before showing you their most over-engineered code) is the freshness detection system.
 
@@ -123,7 +123,7 @@ if (didLastSeen[requesterDid] !== undefined) {
 
 It's the kind of thing users never notice when it works, but would absolutely notice if it didn't. The best infrastructure is invisible.
 
-## Drinking From the Firehose (Without Drowning)
+## Ingesting the firehose
 
 Of course, none of this matters if you can't get the data into your graph in the first place. The AT Protocol's firehose is a WebSocket stream of repository commit events encoded in CBOR (Concise Binary Object Representation) wrapped in CAR files (Content Addressed aRchives).
 
@@ -168,7 +168,7 @@ async executeQuery(query: string, params: object, retryCount: number = 10) {
 
 It's not sophisticated, but it's remarkably effective at handling the occasional database hiccup without losing data.
 
-## The Visualization: Watching a Social Network Breathe
+## Real-time visualization
 
 Now, building a custom feed generator is all well and good, but there's something deeply unsatisfying about infrastructure that only manifests as a slightly better list of posts. I wanted to *see* the graph. To watch it grow. To witness the social network *breathe*.
 
@@ -192,7 +192,7 @@ You can watch someone gain a follower in real-time. See a post accumulate likes 
 
 It is, I must admit, completely impractical for any real purpose. But it's *beautiful*, and sometimes that's enough.
 
-## What I Learned (Besides TypeScript)
+## What I learned
 
 Building BlueJ taught me several things:
 
@@ -204,7 +204,7 @@ Building BlueJ taught me several things:
 
 **Fourth**: there's immense joy in building something that scratches your own itch. BlueJ was never going to compete with the official Bluesky apps. It was never going to scale to millions of users. But it was *mine*, built to my tastes, solving my problems. In an era of platforms, there's something radical about that.
 
-## The Current State of Things
+## Current state
 
 I no longer work at Memgraph, and BlueJ is no longer actively maintained. The codebase lives on as a template, a proof of concept, a testament to what's possible when you have a graph database, a firehose, and insufficient adult supervision.
 

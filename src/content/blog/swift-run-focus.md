@@ -75,7 +75,7 @@ var body: some Scene {
 
 The `ignoringOtherApps: true` parameter is delightfully aggressive. It's the code equivalent of walking into a room and announcing "I'm the main character now."
 
-## The Complete Solution
+## Complete solution
 
 Here's a full example for the copy-paste inclined:
 
@@ -109,19 +109,19 @@ struct MyApp: App {
 }
 ```
 
-## Why Xcode Doesn't Have This Problem
+## Why Xcode works differently
 
 If you build and run from Xcode (⌘R), you'll never encounter this issue. Xcode creates a proper `.app` bundle with all the metadata macOS expects. The `Info.plist` declares your app's identity, the bundle structure signals legitimacy, and macOS treats it with the respect a GUI application deserves.
 
 Swift Package Manager, bless its heart, just creates a naked executable. Efficient, portable, but socially awkward at the macOS party.
 
-## When You Might Hit This
+## When you'll encounter this
 
 - Running `swift build && .build/debug/YourApp` during development
 - Building with SPM for quick iteration without Xcode
 - Any scenario where you're launching a GUI app from a terminal process
 
-## A Note on Elegance (or Lack Thereof)
+## A pragmatic solution
 
 Is this the most elegant solution? No. The elegant solution is to build a proper `.app` bundle with an `Info.plist` that declares your `LSUIElement` status and activation policy. But sometimes you're iterating quickly, or you're building a tool that needs to work both ways, or you just want to ship the thing.
 

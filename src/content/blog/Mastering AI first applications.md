@@ -5,7 +5,7 @@ date: 2025-12-10
 tags: ["ai", "software-design", "ux", "llm"]
 ---
 
-## Rethinking What "Software" Even Is
+## What AI-native means
 
 When I talk about *AI-native applications*, I'm not talking about slapping an "AI" label on an old product and calling it a day. To me, AI-native applications are designed from the ground up to harness the power of artificial intelligence. They're not just adding AI as a feature. They're fundamentally rethinking what software can do when it has the ability to learn, adapt, and interact more naturally with humans.
 
@@ -13,7 +13,7 @@ I think about it a little bit like when we switched from desktop applications to
 
 So for me, AI-native means you start with the assumption that the system can understand language, that it can learn from patterns, that it can adapt as it goes, and you let that reshape the interface, the workflow, and even the business logic. We're not just sprinkling intelligence on top of buttons and forms; we are asking different questions about what the software is *for*, how it should behave, and what kind of relationship it can have with a human being using it. That shift is where the interesting stuff begins, and it's where so many of the old assumptions about software suddenly feel very small.
 
-## Bridging Two Very Different Worlds
+## Bridging humans and computers
 
 One of the key impact areas that AI will have is tied to a tension that has been there since the beginning of computing: there's always been this disconnect between how computers operate and how human beings see the world. Computers are very black and white, zero and one, yes or no, click on an exact coordinate with an X and Y property. They're very binary, structured thinking, and everything about traditional software reflects that at some level, from menu structures to error messages that pretend ambiguity doesn't exist.
 
@@ -23,7 +23,7 @@ Now, LLMs are a large part of a bridge between those two realities, because they
 
 When AI-native applications take that bridge seriously, they don't just make a chatbot that sits beside the same old interface; they reduce that cognitive friction, making technology feel more intuitive and responsive. Because they learn from patterns and interactions over time, AI-native applications can become more personalized and efficient than traditional software that follows fixed rules, and that gradual adaptation is what makes them feel less like tools and more like collaborators.
 
-## From "Press 1 for Frustration" to Conversations That Actually Help
+## Customer support as an example
 
 A very concrete example where this shift is already visible is customer support, because almost everyone knows what it feels like when it goes wrong. One of the most obvious impact areas is chat agents that can ask questions, follow ups, and converse with an end customer without needing a human being for most of the basic questions. That is a win for both sides when it's done well, because people can just talk to it like a human being, and companies don't need to put a person on every single "I forgot my password" or "where is my order" interaction.
 
@@ -33,7 +33,7 @@ At the same time, there are limits, and when you reach that limit, people wish t
 
 So when people ask if users are more satisfied now that AI can provide more natural and helpful interactions, I think it's a mixed bag, which is fair. The potential is absolutely there, and in many cases it *is* better than pressing digits into a void, but it lives or dies on whether the system is genuinely well-trained on relevant information and whether that escape hatch exists when it should.
 
-## Language as the Operating System
+## Language as connective tissue
 
 One of the most mind-blowing aspects of AI-native applications, to me, is how they use language not just as an interface for humans but as a connective tissue inside complex systems. I remember Google Robotics 2.0, their research lab, found that when a robot with a camera and sensors encountered a scene it didn't know how to solve, the best way to resolve that and find an approach was to express what they were seeing in human language and then have another LLM take that description and use that to build what a solution could look like that could be executed.
 
@@ -43,7 +43,7 @@ That flexibility is a hallmark of AI-native design, where you accept that human 
 
 I feel that same thing in smaller, more personal tools too. The application I'm using right now for you to interview me, which is fully AI-driven and has research agents and agents that look for tensions and gaps and new trends, is an incredibly well-designed AI application that turns ramblings and thoughts and texts and long speeches into a cohesive structural narrative, still using my tone of voice, but well-written, well-structured, and well-flowed. I don't have to be nervous anymore about how to structure sentences, and I can just focus on what I want to say, which is an absolutely wonderful experience, because again it is reducing cognitive overhead rather than adding more.
 
-## Misconceptions, Hype, and the Question of "Good"
+## Cutting through the hype
 
 With all this potential, it's no surprise that AI-native applications are surrounded by a lot of noise, and one of the biggest misconceptions I see is tied to this weird split between overestimation and underestimation. People overestimate what AI can do tremendously, or they underestimate what AI can do tremendously, and we see that in very concrete ways in which AI is being applied. Y Combinator looks at the amount of successful startups over time pre and post AI, and it actually went down a little bit, which is not the story people sometimes expect when they think every new founder with a model key will change the world.
 

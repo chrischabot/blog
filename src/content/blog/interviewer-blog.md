@@ -13,7 +13,7 @@ The problem isn't a lack of ideas. The problem is that nobody is asking me the r
 
 <!-- Image placeholder: The Interviewer app home screen -->
 
-## The Curious Case of the Missing Interlocutor
+## The need for a good interviewer
 
 Good interviews are a kind of magic. The right question at the right moment can unlock insights you didn't know you had. Skilled interviewers—the Terry Gross types—don't just collect information. They *excavate* it. They probe contradictions, follow tangents, circle back to half-finished thoughts that the speaker themselves had forgotten.
 
@@ -23,7 +23,7 @@ Enter **Interviewer**: a native Swift app that conducts podcast-style interviews
 
 The tagline says it all: *"You don't know what you know, until you are asked."*
 
-## How It Actually Works
+## How it works
 
 The experience is deceptively simple. You tell the app what you want to talk about—perhaps "the future of AI-native applications" or "why most code review is theater"—and it generates an interview plan. Not a rigid script, but a research-driven rubric with backbone questions (the ones you must hit) and follow-up tangents (the whimsical detours where insight often hides).
 
@@ -31,7 +31,7 @@ Then you talk. Just... talk. The app listens, responds with voice, and gently st
 
 Behind the scenes, something considerably more sophisticated is happening.
 
-## Seven Agents, One Symphony
+## The agent architecture
 
 The real engineering achievement here isn't the voice interface—though that's elegant enough. It's the orchestration of seven specialized AI agents working in concert, like a well-rehearsed ensemble where each player knows exactly when to step forward and when to fade back.
 
@@ -45,7 +45,7 @@ And if you have more to say, there's a **Follow-Up Agent** that analyzes your pr
 
 <!-- Image placeholder: Choosing follow-up topics -->
 
-## The Voice of the Writer (Which Is Your Voice)
+## Preserving your voice
 
 Here's where most AI writing tools go wrong: they produce prose that sounds like AI wrote it. Generic. Bloodless. Full of phrases like "it's important to note" and "in today's fast-paced world."
 
@@ -53,7 +53,7 @@ Interviewer takes a different approach. The Writer agent is a ghostwriter, not a
 
 The output is elegant and well-structured, but unmistakably yours. The goal is for you to read it and think: *Yes, that's exactly what I meant—and exactly how I would have said it if I'd had time to write it properly.*
 
-## No Backend, No Excuses
+## Runs locally
 
 The entire system runs natively on your Mac or iPhone. No server to deploy, no backend to maintain. Your data stays on your device (stored in SwiftData, API key secured in Keychain). The only external communication is with OpenAI's APIs.
 
@@ -61,7 +61,7 @@ This simplicity is a feature, not a limitation. Lower latency, because there's n
 
 <!-- Image placeholder: Live interview in progress -->
 
-## The Technology Under the Hood
+## Technical details
 
 For the technically curious: this is Swift 6 running on SwiftUI with Apple's new Liquid Glass design language. The voice pipeline uses AVAudioEngine for capture and playback, with multi-layer echo cancellation so the AI doesn't interview itself. The agents are Swift actors calling OpenAI's Chat Completions API with structured outputs—meaning they return guaranteed JSON that the app can reason about.
 

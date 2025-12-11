@@ -9,7 +9,7 @@ Building a chat window seems deceptively simple. It's just a list of messages, r
 
 This is the story of how I built the chat interface for cIRC, my Swift/SwiftUI IRC client. It's a tale of hubris, humility, and learning to respect problems that looked trivial from a distance.
 
-## The Humble Requirements
+## Requirements
 
 The chat window needed to do three things:
 
@@ -21,7 +21,7 @@ Simple. I'd be done by lunch.
 
 Reader, I was not done by lunch.
 
-## Act I: The Scroll Position Debacle
+## Tracking scroll position
 
 SwiftUI's `ScrollView` is a marvel of declarative UI design. It's also, shall we say, *opinionated* about how much control it gives you over scroll position.
 
@@ -94,7 +94,7 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
 
 Is `0.05` seconds the correct delay? Empirically, yes. Theoretically, I have no idea. It works on my machine, and isn't that what software engineering is all about?
 
-## Act II: The Invisible Bottom Anchor
+## The bottom anchor
 
 Messages need to scroll *past* all content to the true bottom, including any padding. My first attempts kept leaving a few pixels of the last message cut off, like a bad haircut.
 
@@ -116,7 +116,7 @@ Color.clear
 
 One pixel of invisible color, carrying the entire scroll experience on its metaphorical shoulders.
 
-## Act III: IRC Formatting, or How I Learned to Stop Worrying and Love Control Characters
+## Parsing IRC formatting
 
 IRC was born in 1988, which means its text formatting predates not just Unicode, but widespread agreement that control characters should be limited to actually controlling things.
 
@@ -170,7 +170,7 @@ The real fun is that `\u{03}` with *no* following number resets colors, but `\u{
 
 I briefly considered just stripping all formatting codes. Then I joined an IRC channel where someone's username was rendered in rainbow colors, and I knew I had to do this properly.
 
-## Act IV: The Buffer and the Deque
+## Message buffering
 
 Messages need to be stored efficiently. IRC channels can be chatty—thousands of messages aren't unusual. I capped the buffers at 2,000 messages using swift-collections' `Deque`:
 
@@ -190,7 +190,7 @@ public func addMessage(_ message: MessageState, incrementUnread: Bool = true) {
 
 The `trimBatchSize` is a minor optimization—removing messages one at a time is wasteful, so I remove 100 at once when the limit is hit. It's the kind of micro-optimization that probably doesn't matter but makes me feel clever.
 
-## Act V: Tab Completion, or The Feature That Took Three Rewrites
+## Tab completion
 
 Every IRC client needs tab completion. Type `@Al<TAB>` and it should complete to `@Alice: ` (with the colon if you're at the start of the line, because that's how you address someone on IRC, and yes, this matters to IRC users).
 
