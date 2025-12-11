@@ -1,5 +1,5 @@
 ---
-title: "The end of DevRel vibes: measuring what matters"
+title: "Measuring what matters in DevRel"
 description: "Developer Relations has a metrics problem. Not a shortage of them—we've got GitHub stars and Discord members galore. The problem is none of them actually mean anything."
 date: 2025-12-11
 tags: ["devrel", "metrics", "developer-experience", "strategy"]
@@ -10,9 +10,7 @@ tags: ["devrel", "metrics", "developer-experience", "strategy"]
 
 ## The conference industrial complex
 
-Here's a confession: I've spent years accumulating airline miles in the name of "developer growth."
-
-The strategy was seductively simple. Fly somewhere photogenic. Give a talk. Collect business cards. Post photos to LinkedIn with captions about "incredible energy" and "amazing community." Rinse. Repeat. Call it success.
+I've seen it countless times across the industry—in teams I've worked with, in programs I've observed, and most recently in a team a good friend joined as the new leader. The strategy is seductively simple: fly somewhere photogenic, give a talk, collect business cards, post photos to LinkedIn with captions about "incredible energy" and "amazing community." Rinse. Repeat. Call it success.
 
 This is **developer tourism**—the art of being everywhere while accomplishing approximately nothing measurable. It's the DevRel equivalent of a politician kissing babies: photogenic, feels important, produces zero lasting change.
 
