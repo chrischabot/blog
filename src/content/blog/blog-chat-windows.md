@@ -1,5 +1,5 @@
 ---
-title: "How We Built Chat Windows That Don't Make Users Want to Throw Their Laptops"
+title: "Implementing an auto-scroll window view in SwiftUI"
 description: "A journey through scroll behavior, IRC formatting codes from the 1990s, and the existential dread of LazyVStack."
 date: 2025-12-10
 tags: ["swift", "swiftui", "irc", "engineering"]
@@ -7,25 +7,25 @@ tags: ["swift", "swiftui", "irc", "engineering"]
 
 Building a chat window seems deceptively simple. It's just a list of messages, right? You scroll down, new messages appear at the bottom, Bob's your uncle. If only software development worked like that.
 
-This is the story of how we built the chat interface for cIRC, our Swift/SwiftUI IRC client. It's a tale of hubris, humility, and learning to respect problems that looked trivial from a distance.
+This is the story of how I built the chat interface for cIRC, my Swift/SwiftUI IRC client. It's a tale of hubris, humility, and learning to respect problems that looked trivial from a distance.
 
 ## The Humble Requirements
 
-Our chat window needed to do three things:
+The chat window needed to do three things:
 
 1. Show messages
 2. Scroll to the bottom when new messages arrive (but only if you're already at the bottom)
-3. Parse IRC formatting codes that predate most of our interns
+3. Parse IRC formatting codes that predate most interns
 
-Simple. We'd be done by lunch.
+Simple. I'd be done by lunch.
 
-Reader, we were not done by lunch.
+Reader, I was not done by lunch.
 
 ## Act I: The Scroll Position Debacle
 
 SwiftUI's `ScrollView` is a marvel of declarative UI design. It's also, shall we say, *opinionated* about how much control it gives you over scroll position.
 
-Our first attempt was charmingly naive:
+My first attempt was charmingly naive:
 
 ```swift
 ScrollView {
@@ -37,7 +37,7 @@ ScrollView {
 }
 ```
 
-This worked! Messages appeared. We could scroll. Victory was declared, champagne was uncorked, and then someone asked: "Why doesn't it scroll down when new messages arrive?"
+This worked! Messages appeared. I could scroll. Victory was declared, champagne was uncorked, and then I asked myself: "Why doesn't it scroll down when new messages arrive?"
 
 Ah.
 
@@ -47,7 +47,7 @@ The fundamental challenge of chat interfaces is this: when a new message arrives
 
 SwiftUI, in its infinite wisdom, doesn't expose scroll position directly. You can't just ask "hey, are we at the bottom?" You have to *infer* it, like a detective piecing together clues from a crime scene where the only witness is a `GeometryReader` that lies.
 
-Our solution involved the new `onScrollGeometryChange` modifier:
+My solution involved the new `onScrollGeometryChange` modifier:
 
 ```swift
 .onScrollGeometryChange(for: Bool.self) { geometry in
@@ -68,7 +68,7 @@ Elegant? Not particularly. Does it work? After approximately seventeen iteration
 
 ### The Recursive Scroll Problem
 
-Here's where things got properly weird. We needed to scroll to the bottom when content grew, so we added:
+Here's where things got properly weird. I needed to scroll to the bottom when content grew, so I added:
 
 ```swift
 .onScrollGeometryChange(for: CGFloat.self) { geometry in
@@ -92,13 +92,13 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
 }
 ```
 
-Is `0.05` seconds the correct delay? Empirically, yes. Theoretically, we have no idea. It works on our machines, and isn't that what software engineering is all about?
+Is `0.05` seconds the correct delay? Empirically, yes. Theoretically, I have no idea. It works on my machine, and isn't that what software engineering is all about?
 
 ## Act II: The Invisible Bottom Anchor
 
-Messages need to scroll *past* all content to the true bottom, including any padding. Our first attempts kept leaving a few pixels of the last message cut off, like a bad haircut.
+Messages need to scroll *past* all content to the true bottom, including any padding. My first attempts kept leaving a few pixels of the last message cut off, like a bad haircut.
 
-The fix was almost embarrassingly simple once we found it: an invisible anchor element:
+The fix was almost embarrassingly simple once I found it: an invisible anchor element:
 
 ```swift
 LazyVStack {
@@ -120,7 +120,7 @@ One pixel of invisible color, carrying the entire scroll experience on its metap
 
 IRC was born in 1988, which means its text formatting predates not just Unicode, but widespread agreement that control characters should be limited to actually controlling things.
 
-Here's what we're dealing with:
+Here's what I'm dealing with:
 
 - `\u{02}` (Ctrl+B) - Bold
 - `\u{03}` - Color codes (followed by numbers, naturally)
@@ -168,11 +168,11 @@ case "\u{03}":
 
 The real fun is that `\u{03}` with *no* following number resets colors, but `\u{03}4` sets foreground to red, and `\u{03}4,2` sets foreground to red and background to navy.
 
-We briefly considered just stripping all formatting codes. Then we joined an IRC channel where someone's username was rendered in rainbow colors, and we knew we had to do this properly.
+I briefly considered just stripping all formatting codes. Then I joined an IRC channel where someone's username was rendered in rainbow colors, and I knew I had to do this properly.
 
 ## Act IV: The Buffer and the Deque
 
-Messages need to be stored efficiently. IRC channels can be chatty—thousands of messages aren't unusual. We capped our buffers at 2,000 messages using swift-collections' `Deque`:
+Messages need to be stored efficiently. IRC channels can be chatty—thousands of messages aren't unusual. I capped the buffers at 2,000 messages using swift-collections' `Deque`:
 
 ```swift
 public var messages: Deque<MessageState>
@@ -188,7 +188,7 @@ public func addMessage(_ message: MessageState, incrementUnread: Bool = true) {
 }
 ```
 
-The `trimBatchSize` is a minor optimization—removing messages one at a time is wasteful, so we remove 100 at once when we hit the limit. It's the kind of micro-optimization that probably doesn't matter but makes us feel clever.
+The `trimBatchSize` is a minor optimization—removing messages one at a time is wasteful, so I remove 100 at once when the limit is hit. It's the kind of micro-optimization that probably doesn't matter but makes me feel clever.
 
 ## Act V: Tab Completion, or The Feature That Took Three Rewrites
 
@@ -212,7 +212,7 @@ completionCandidates = savedCandidates
 completionIndex = savedIndex
 ```
 
-We're not proud of it, but we're not embarrassed either. Sometimes you have to work with the framework you have, not the framework you wish you had.
+I'm not proud of it, but I'm not embarrassed either. Sometimes you have to work with the framework you have, not the framework you wish you had.
 
 ## Lessons Learned
 
@@ -226,17 +226,17 @@ We're not proud of it, but we're not embarrassed either. Sometimes you have to w
 
 ## The Result
 
-We now have a chat window that:
+I now have a chat window that:
 
 - Scrolls smoothly
 - Stays at the bottom when it should
 - Lets you read history without interruption
 - Renders decades-old formatting codes
 - Completes nicks with a single tab
-- Probably has three bugs we haven't found yet
+- Probably has three bugs I haven't found yet
 
 It's not perfect, but it works. And in the grand tradition of IRC itself—a protocol that's survived 35+ years through sheer stubbornness—sometimes "works" is exactly good enough.
 
 ---
 
-*cIRC is a native macOS/iOS IRC client built with Swift 6 and SwiftUI. If you've read this far, you're either very interested in chat interfaces or very good at procrastinating. Either way, we salute you.*
+*cIRC is a native macOS/iOS IRC client built with Swift 6 and SwiftUI. If you've read this far, you're either very interested in chat interfaces or very good at procrastinating. Either way, I salute you.*

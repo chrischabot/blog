@@ -1,5 +1,5 @@
 ---
-title: "You Don't Know What You Know (Until You're Asked)"
+title: "You Don't Know What You Know. Until You're Asked"
 description: "Building Interviewer: a multi-agent AI app that conducts podcast-style interviews and transforms conversations into polished essays."
 date: 2025-12-10
 tags: ["ai", "swift", "agents", "projects"]

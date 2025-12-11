@@ -1,5 +1,5 @@
 ---
-title: "AI-native Applications: A New Era of Intuitive Software"
+title: "Designing AI Native Applications"
 description: "AI-native applications are fundamentally rethinking what software can do when it has the ability to learn, adapt, and interact more naturally with humans."
 date: 2025-12-10
 tags: ["ai", "software-design", "ux", "llm"]
