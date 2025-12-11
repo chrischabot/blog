@@ -183,6 +183,8 @@ The [DevRel industry is stabilizing](https://www.devrel.agency/post/announcing-t
 
 Electric Capital provided the data infrastructure. This dashboard turns it into actionable intelligence. The rest is execution.
 
+For me personally, this approach has been transformative. It's helped me convince leadership and horizontal stakeholders to trust a data-driven strategy. More importantly, it's given me the clarity to identify which events were actually working for us, which weren't, and what specific changes we needed to make to drive real success.
+
 I still believe in the power of being present—of handshakes and whiteboard sessions and the serendipity of hallway conversations. But presence without measurement is just expensive travel.
 
 The next time someone asks "What's the ROI of that conference?", you should have an answer beyond "the energy was amazing."
