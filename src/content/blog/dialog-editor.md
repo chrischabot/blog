@@ -1,6 +1,6 @@
 ---
 title: "What makes a good dialog editor for voice?"
-description: "Exploring the design choices that make dialog iteration faster, clearer, and more pleasant for developers working with voice using the ElevenLabs Dialog API."
+description: "Exploring the design choices that make dialog iteration faster, clearer, and more pleasant for creators"
 date: 2025-12-14
 tags: ["voice", "elevenlabs", "developer-tools", "open-source"]
 ---
