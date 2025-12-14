@@ -35,7 +35,7 @@ You can then filter this list and match against the model base name that you wan
 
 ## Learning the API by watching it work
 
-We've all been there where you're starting at documentation and wondering, "what does this _actually_ mean?". Being able to inspect the requests and results as they happen makes it all real.
+We've all been there where you're staring at documentation and wondering, "what does this _actually_ mean?". Being able to inspect the requests and results as they happen makes it all real.
 
 Dialog Editor includes an in-app developer tools drawer that exposes the full interaction with the ElevenLabs SDK. You can view debug logs as they are emitted, inspect raw requests and responses, and see the exact JSON payload generated for the dialog you are editing. This allows you as a developer to grok whats happening under the hood and how the API surface works, and discover features and fields you might not have known about otherwise.
 
