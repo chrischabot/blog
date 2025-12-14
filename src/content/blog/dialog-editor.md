@@ -5,7 +5,7 @@ date: 2025-12-14
 tags: ["voice", "elevenlabs", "developer-tools", "open-source"]
 ---
 
-**Dialog Editor** is a small exploration, it exists to answer two practical questions. What does it actually feel like to build with the ElevenLabs Dialog API? And what design choices make dialog iteration faster, clearer, and more pleasant for developers working with voice? After all, the quality of the tooling shapes the quality of the experience.
+**Dialog Editor** is a small exploration, it exists to answer two practical questions. What does it actually feel like to build with the ElevenLabs Dialog API? And what design choices make dialog iteration faster, clearer, and more pleasant for creators working with voice? After all, the quality of the tooling shapes the quality of the experience.
 
 ## Voice generation needs visible feedback
 
